@@ -1,4 +1,10 @@
-const calculateFraction = () => {
+  const txArrays = [
+    [0, 0.5, 1, 0.75],
+    [1, 1, 0, 0],
+    [0, 0.5, 0.25, 1],
+  ];
+  
+  const calculateFraction = () => {
     const groups = [
       { name: 'A to L', checkboxes: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'] },
       { name: 'a to h', checkboxes: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] },
@@ -17,12 +23,37 @@ const calculateFraction = () => {
     }
   
     return fractions;
+
   };
+
+
+
+const txMatch = (a, b) => {
+    let dotProduct = 0, aMagnitude = 0, bMagnitude = 0;
+    
+    for (let i = 0; i < a.length; i++) {
+        dotProduct += a[i] * b[i];
+        aMagnitude += a[i] * a[i];
+        bMagnitude += b[i] * b[i];
+    }
+
+    if(aMagnitude === 0 || bMagnitude === 0) {
+        return 0; // As cosine similarity is not defined when either or both magnitudes are zero.
+    } else {
+        return dotProduct / (Math.sqrt(aMagnitude) * Math.sqrt(bMagnitude));
+    }
+}
+
   
 const calcDisplay = (event) => {
     event.preventDefault();
     const total = calculateFraction();
-    console.log(total);
-};
+  
+    for (let i = 0; i < txArrays.length; i++) {
+      const final = txMatch(total, txArrays[i]);
+      console.log(final);
+    }
+  };
+  
 
 document.getElementById('calculate').addEventListener('click', calcDisplay);
