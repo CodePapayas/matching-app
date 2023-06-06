@@ -9,6 +9,9 @@
 </head>
 <body>
     <h1 id="title">Client Fit Survey</h1>
+    <br>
+    <div id="results"></div>
+    <br>
     <form id="form">
 
     <h2>Personal Info</h2>
@@ -20,12 +23,14 @@
         <input type="date" id="bDay" name="bDay"><br>
         <br>
     <h2>Availability</h2>
-        <label for="time">Best time for therapy:</label>
-        <select id="time" name="time">
-          <option value="morn">Morning</option>
-          <option value="noon">Afternoon</option>
-          <option value="eve">Evening</option>
-        </select>
+        <label for="time">Best time for therapy:</label><br>
+        <input type="checkbox" id="morn" name="morn">
+        <label for="morning">Morning</label><br>
+        <input type="checkbox" id="noon" name="noon">
+        <label for="afternoon">Afternoon</label><br>
+        <input type="checkbox" id="eve" name="eve">
+        <label for="Evening">Evening</label>
+        <br>
     <h2>Symptoms</h2>
         <input type="checkbox" id="A" name="A"><label for="A">A</label><br>
         <input type="checkbox" id="B" name="B"><label for="B">B</label><br>
@@ -67,6 +72,8 @@
         <input type="checkbox" id="v" name="v"><label for="v">v</label><br>
     <br>
         <button id="calculate">Submit</button>
+
+   
     
     
         
